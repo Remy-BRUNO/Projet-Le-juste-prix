@@ -1,26 +1,34 @@
-// generer un num aleatoir, demander a l'user d'entrer un numbre, lui dir si c'est plus petit ou plus grand.
+const userDificult = prompt("choix de difficulté en numbre de possibilité");
 
-const guessNumber = Math.ceil(Math.random() * 20);
+const justPrice = Math.ceil(Math.random() * userDificult);
 
-function checkNumber() {
-	let userInput;
-
-	do {
+let userInput;
+let result;
+let count = 1;
+function checkPrice() {
+	while (userInput != justPrice) {
 		do {
-			userInput = prompt("veuillez saisire un nombre");
+			userInput = prompt("Veuillez saisir un nombre");
 
 			if (!userInput) {
 				return;
 			}
-		} while (isNaN.userInput);
-
-		if (userInput > guessNumber) {
-			alert("C'est plus petit");
-		} else if (userInput < guessNumber) {
-			alert("C'est plus grand");
-		} else if ((userInput = guessNumber)) {
-			alert("C'est Gagné");
+		} while (isNaN(Number(userInput)));
+		if (userInput < justPrice) {
+			console.log("trop petit");
+			count++;
 		}
-	} while ((userInput = guessNumber));
+
+		if (userInput > justPrice) {
+			console.log("trop grand");
+			count++;
+		}
+	}
+	if ((userInput = justPrice)) {
+		result = `Vous avez Gagné en ${count} coût`;
+	}
+	return result;
 }
-console.log(checkNumber());
+console.log(checkPrice());
+// alert(checkPrice());
+document.getElementById("win").innerHTML = checkPrice();
