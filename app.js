@@ -1,4 +1,14 @@
-const userDificult = prompt("choix de difficulté en numbre de possibilité");
+let userDificult;
+function choise() {
+	do {
+		userDificult = prompt("choix de difficulté en numbre de possibilité");
+
+		if (!userDificult) {
+			return;
+		}
+	} while (isNaN(Number(userDificult)));
+}
+choise();
 
 const justPrice = Math.ceil(Math.random() * userDificult);
 
@@ -25,7 +35,7 @@ function checkPrice() {
 		}
 	}
 	if ((userInput = justPrice)) {
-		result = `Vous avez Gagné en ${count} coût`;
+		result = `Vous avez Gagné en ${count} coup`;
 	}
 	return result;
 }
